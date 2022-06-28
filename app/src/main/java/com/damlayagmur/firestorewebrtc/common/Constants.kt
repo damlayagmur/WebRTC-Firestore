@@ -12,6 +12,10 @@ object Constants {
     const val MEETING_ID = "meetingID"
     const val IS_JOIN = "isJoin"
 
+
+    var isCallEnded: Boolean = false
+    var isIntiatedNow : Boolean = true
+
     enum class USERTYPE {
         OFFER_USER,
         ANSWER_USER

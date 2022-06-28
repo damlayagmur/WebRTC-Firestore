@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.damlayagmur.firestorewebrtc"
-        minSdk 21
+        minSdk 25
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -80,4 +80,10 @@ dependencies {
     // SDP-SDP
     implementation "com.intuit.sdp:sdp-android:1.0.6"
     implementation "com.intuit.ssp:ssp-android:1.0.6"
+
+    implementation platform('com.google.firebase:firebase-bom:30.2.0')
+
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 }
