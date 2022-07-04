@@ -1,6 +1,4 @@
 
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 ã
 [app/src/main/java/com/damlayagmur/firestorewebrtc/common/webrtc/observer/SdpObserverImpl.kt,f/7/f7e88e78aceaf9d12412594bea778bacad128f7e
 ë
@@ -13,12 +11,8 @@ fapp/src/main/java/com/damlayagmur/firestorewebrtc/common/webrtc/observer/PeerCo
 Rapp/src/main/java/com/damlayagmur/firestorewebrtc/common/webrtc/RTCAudioManager.kt,0/3/0352c9b44465277aa69dec51125ca30b4a2d802c
 Ñ
 Tapp/src/main/java/com/damlayagmur/firestorewebrtc/presentation/main/MainViewModel.kt,9/6/96e823a5277245087c9a63cb4e54c3cf3eee300c
-z
-Japp/src/main/java/com/damlayagmur/firestorewebrtc/domain/MainRepository.kt,7/c/7c1b5618e0b4de8880f8c162d5c910385f715447
 Ö
 Uapp/src/main/java/com/damlayagmur/firestorewebrtc/presentation/login/LoginFragment.kt,8/9/8973efca7cfbbbbccb8e4e8bdc6a591d755cea3a
-{
-Kapp/src/main/java/com/damlayagmur/firestorewebrtc/domain/LoginRepository.kt,1/a/1aad3cce7e332703f3c8e2c24656865428f2ee22
 Ü
 Vapp/src/main/java/com/damlayagmur/firestorewebrtc/presentation/login/LoginViewModel.kt,f/f/ffba5ff9930e1dab8691f8e8617a96da5b487efb
 ç
@@ -31,3 +25,7 @@ n
 Zapp/src/main/java/com/damlayagmur/firestorewebrtc/common/webrtc/util/PeerConnectionUtil.kt,4/3/436d1cfaa2c34df2e11995e13425b6458ef8e3f4
 Ñ
 Tapp/src/main/java/com/damlayagmur/firestorewebrtc/presentation/call/CallViewModel.kt,f/f/ff593834b084d814d7e7e8b7cc5b2abeff7785db
+É
+Sapp/src/main/java/com/damlayagmur/firestorewebrtc/presentation/call/CallActivity.kt,e/1/e15e5c86d1980bd87a7ac33ab35e552a631b3add
+J
+app/google-services-3.json,3/7/37df0fcaf88f39139523a590ab004006bd07a1dc

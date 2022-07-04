@@ -137,8 +137,6 @@ object WebRtcClient {
     }
 
     fun call(meetingID: String) {
-        Log.d(TAG, "contacts: called")
-
         peerConnection?.createOffer(
             SdpObserverImpl(
                 onCreateSuccessCallback = { sdp ->
@@ -150,20 +148,12 @@ object WebRtcClient {
                             val offerSdp =
                                 Sdp(meetingID, sdp.description, sdp.type.name)
 
-                            //val upsertTask = cloudDBZone?.executeUpsert(offerSdp)
                             db.collection("calls").document(meetingID).set(offerSdp)
                                 .addOnSuccessListener {
                                     Log.i(TAG, "Calls Sdp Upsert success: $it")
                                 }.addOnFailureListener {
                                     Log.i(TAG, "Calls Sdp Upsert failed: ${it.message}")
                                 }
-
-                            /*upsertTask?.addOnSuccessListener { cloudDBZoneResult ->
-                                Log.i(TAG, "Calls Sdp Upsert success: $cloudDBZoneResult")
-                            }?.addOnFailureListener {
-                                Log.i(TAG, "Calls Sdp Upsert failed: ${it.message}")
-                            }
-                            Log.e(TAG, "onSetSuccess")*/
                         }
                     ), sdp)
                 }

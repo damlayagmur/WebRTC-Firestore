@@ -24,13 +24,9 @@ class SignalingClient(
     override val coroutineContext: CoroutineContext = Dispatchers.IO + job
 
     private var sdpType: Constants.TYPE? = null
-
-    //private var cloudDB: AGConnectCloudDB? = CloudDbWrapper.cloudDB
-    //private var cloudDBZone: CloudDBZone? = CloudDbWrapper.cloudDBZone
-
     private val db = Firebase.firestore
-
     private val sendChannel = ConflatedBroadcastChannel<String>()
+
     var SDPtype: String? = null
 
     init {
