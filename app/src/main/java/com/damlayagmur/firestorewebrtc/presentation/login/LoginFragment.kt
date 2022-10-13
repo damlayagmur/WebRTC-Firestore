@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.damlayagmur.firestorewebrtc.databinding.FragmentLoginBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -30,10 +28,6 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        /*AGConnectAuth.getInstance().currentUser?.let {
-            findNavController().navigate(R.id.loginToMain)
-        }*/
 
         lifecycleScope.launch {
 
@@ -64,18 +58,7 @@ class LoginFragment : Fragment() {
                     .setDuration(500)
                     .setListener(null)
                 setOnClickListener {
-                    /*AGConnectAuth.getInstance()
-                        .signIn(requireActivity(), AGConnectAuthCredential.HMS_Provider)
-                        .addOnSuccessListener {
-                            findNavController().navigate(R.id.loginToMain)
-                        }
-                        .addOnFailureListener {
-                            Toast.makeText(
-                                requireContext(),
-                                it.message.toString(),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }*/
+                    //TODO Firebase Auth
                 }
             }
         }

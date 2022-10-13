@@ -22,8 +22,6 @@ object WebRtcClient {
 
     private val db = Firebase.firestore
 
-    //private var cloudDBZone: CloudDBZone? = null
-
     private var localAudioTrack: AudioTrack? = null
     private var localVideoTrack: VideoTrack? = null
 
@@ -238,90 +236,6 @@ object WebRtcClient {
     fun addIceCandidate(iceCandidate: IceCandidate) = peerConnection?.addIceCandidate(iceCandidate)
 
     fun closePeerConnection() = peerConnection?.close()
-
-    /*fun clearCandidates(meetingID: String) {
-        val queryCallsCandidates =
-            CloudDBZoneQuery.where(Candidates::class.java).equalTo("meetingID", meetingID)
-        val queryTaskCallsCandidates = cloudDBZone?.executeQuery(
-            queryCallsCandidates,
-            CloudDBZoneQuery.CloudDBZoneQueryPolicy.POLICY_QUERY_FROM_CLOUD_ONLY
-        )
-        queryTaskCallsCandidates?.addOnSuccessListener { snapshot ->
-            val callsCandidatesList = mutableListOf<Candidates>()
-            try {
-                while (snapshot.snapshotObjects.hasNext()) {
-                    callsCandidatesList.add(snapshot.snapshotObjects.next())
-                }
-            } catch (e: AGConnectCloudDBException) {
-                Log.w(TAG, "Snapshot Error: " + e.message)
-            } finally {
-                val iceCandidateArray: MutableList<IceCandidate> = mutableListOf()
-                for (data in callsCandidatesList) {
-                    if (data.callType != null && data.callType == Constants.USERTYPE.OFFER_USER.name) {
-                        iceCandidateArray.add(
-                            IceCandidate(
-                                data.sdpMid,
-                                data.sdpMLineIndex,
-                                data.sdpCandidate
-                            )
-                        )
-                    } else if (data.callType != null && data.callType == Constants.USERTYPE.ANSWER_USER.name) {
-                        iceCandidateArray.add(
-                            IceCandidate(
-                                data.sdpMid,
-                                data.sdpMLineIndex,
-                                data.sdpCandidate
-                            )
-                        )
-                    }
-                }
-
-                peerConnection?.removeIceCandidates(iceCandidateArray.toTypedArray())
-
-                val deleteTask = cloudDBZone?.executeDelete(callsCandidatesList)
-                deleteTask?.addOnSuccessListener {
-                    Log.i(TAG, "Candidates Delete success: $it")
-                }?.addOnFailureListener {
-                    Log.i(TAG, "Candidates Delete failed: $it")
-                }
-                snapshot.release()
-            }
-        }?.addOnFailureListener {
-            Log.w(TAG, "QueryTask Failure: " + it.message)
-        }
-    }
-
-    fun clearSdp(meetingID: String) {
-
-        val queryCallsSdp =
-            CloudDBZoneQuery.where(Sdp::class.java).equalTo("meetingID", meetingID)
-        val queryTaskCallsSdp = cloudDBZone?.executeQuery(
-            queryCallsSdp,
-            CloudDBZoneQuery.CloudDBZoneQueryPolicy.POLICY_QUERY_FROM_CLOUD_ONLY
-        )
-        queryTaskCallsSdp?.addOnSuccessListener { snapshot ->
-            val callsSdpList = mutableListOf<Sdp>()
-            try {
-                while (snapshot.snapshotObjects.hasNext()) {
-                    callsSdpList.add(snapshot.snapshotObjects.next())
-                }
-            } catch (e: AGConnectCloudDBException) {
-                Log.w(TAG, "Snapshot Error: " + e.message)
-            } finally {
-                val deleteTask = cloudDBZone?.executeDelete(callsSdpList)
-                deleteTask?.addOnSuccessListener {
-                    Log.i(TAG, "Sdp Delete success: $it")
-                }?.addOnFailureListener {
-                    Log.i(TAG, "Sdp Delete failed: $it")
-                }
-                snapshot.release()
-            }
-        }?.addOnFailureListener {
-            Log.w(TAG, "QueryTask Failure: " + it.message)
-        }
-
-        peerConnection?.close()
-    }*/
 
     fun enableVideo(isVideoEnabled: Boolean) {
         localVideoTrack?.setEnabled(isVideoEnabled)
