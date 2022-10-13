@@ -127,21 +127,6 @@ class SignalingClient(
                         }
                     }
                 }
-//            db.collection("calls").document(meetingID)
-//                    .get()
-//                    .addOnSuccessListener { result ->
-//                        val data = result.data
-//                        if (data?.containsKey("type")!! && data.getValue("type").toString() == "OFFER") {
-//                            Log.e(TAG, "connect: OFFER - $data")
-//                            listener.onOfferReceived(SessionDescription(SessionDescription.Type.OFFER,data["sdp"].toString()))
-//                        } else if (data?.containsKey("type") && data.getValue("type").toString() == "ANSWER") {
-//                            Log.e(TAG, "connect: ANSWER - $data")
-//                            listener.onAnswerReceived(SessionDescription(SessionDescription.Type.ANSWER,data["sdp"].toString()))
-//                        }
-//                    }
-//                    .addOnFailureListener {
-//                        Log.e(TAG, "connect: $it")
-//                    }
 
         } catch (exception: Exception) {
             Log.e(TAG, "connectException: $exception")
@@ -170,7 +155,6 @@ class SignalingClient(
             .addOnFailureListener {
                 Log.e(TAG, "sendIceCandidate: Error $it")
             }
-
     }
 
     fun destroy() {

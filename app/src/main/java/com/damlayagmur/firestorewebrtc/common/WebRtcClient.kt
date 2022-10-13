@@ -170,9 +170,6 @@ object WebRtcClient {
                     Log.d(TAG, "answer: onCreateSuccessCallback called")
 
                     val answerSdp = Sdp(meetingID, sdp.description, sdp.type.name)
-                    /* answerSdp.meetingID = meetingID
-                     answerSdp.sdp = Text(sdp.description)
-                     answerSdp.callType = sdp.type.name*/
 
                     db.collection("calls").document(meetingID).set(answerSdp)
                         .addOnSuccessListener {
@@ -180,12 +177,6 @@ object WebRtcClient {
                         }.addOnFailureListener {
                             Log.i(TAG, "Calls Sdp Upsert failed: ${it.message}")
                         }
-                    /*val upsertTask = cloudDBZone?.executeUpsert(answerSdp)
-                    upsertTask?.addOnSuccessListener { cloudDBZoneResult ->
-                        Log.i(TAG, "Calls Sdp Upsert success: $cloudDBZoneResult")
-                    }?.addOnFailureListener {
-                        Log.i(TAG, "Calls Sdp Upsert failed: ${it.message}")
-                    }*/
 
                     peerConnection?.setLocalDescription(SdpObserverImpl(
                         onSetSuccessCallback = {
@@ -196,20 +187,6 @@ object WebRtcClient {
             ), mediaConstraints
         )
     }
-
-    /*fun endCall(meetingID: String) {
-
-        val callsSdp = Sdp(meetingID,)
-        callsSdp.meetingID = meetingID
-        callsSdp.callType = Constants.TYPE.END.name
-        val upsertTask = cloudDBZone?.executeUpsert(callsSdp)
-
-        upsertTask?.addOnSuccessListener { cloudDBZoneResult ->
-            Log.i(TAG, "Calls Sdp Upsert success: $cloudDBZoneResult")
-        }?.addOnFailureListener {
-            Log.i(TAG, "Calls Sdp Upsert failed: ${it.message}")
-        }
-    }*/
 
     @RequiresApi(Build.VERSION_CODES.N)
     fun endCall(meetingID: String) {
