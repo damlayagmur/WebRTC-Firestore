@@ -25,7 +25,6 @@ object RepositoryModule {
     ): CallRepository =
         CallRepositoryImpl(context, eglBase)
 
-
     @Provides
     @ViewModelScoped
     fun provideMainRepository(@ApplicationContext context: Context): MainRepository =
